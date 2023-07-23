@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVCTrial.Models.BookModel>
+@{
+    Layout = "_LayoutCstom";
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <a asp-protocol="https" asp-host="c-sharpcorner.com" asp-controller="home" asp-action="index"> go to new link</a>
+
+    <a href="/book/AddNewData/"> Add New Data</a>
+
+    <title>getAllBook</title>
+</head>
+<body>
+
+    <h2 class="tag"> get all Book Data</h2>
+
+
+    @*<vc:book></vc:book>*@
+
+
+    <div class="row">
+
+
+
+        @foreach (var item in Model)
+        {
+
+
+            <!--<div class="col">
+                <h2>
+                    Title: @item.title
+                </h2>
+                <h2> Author: @item.author</h2>-->
+
+            @*<a href="/book/getbookdetail/@item.ID"> Go to Details</a>*@
+            <!--<a asp-controller="book" asp-action="getbookdetail" asp-route-id="@item.ID">Go to Details </a>-->
+            @*<a asp-route="bookroute" asp-route-id="@item.ID"> Go to Details</a>*@
+            <!--</div>-->
+
+            <partial name="_partialListOfBook" model="@item" />// parital tag helper
+
+
+            @*@Html.Partial("_partialListOfBook", item);
+
+                {
+                    Html.RenderPartial("_partialListOfBook", item);
+                }*@
+
+        }
+    </div>
+
+    @*@{
+        await Component.InvokeAsync("Book");
+    }*@
+
+
+</body>
+</html>

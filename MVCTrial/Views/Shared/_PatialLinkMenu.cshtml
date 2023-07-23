@@ -1,0 +1,64 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> obj
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+    @{
+        bool demo = obj.IsSignedIn(User);
+    }
+
+    <div class="container">
+        @if (obj.IsSignedIn(User))
+        {
+
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Account" asp-action="SignUp">Sign UP</a></li>
+
+
+
+                    <li>Hello! @User.Identity.Name Already signed in</li>
+
+                    <li>Name! @User.FindFirst("UserFirstName").Value</li>
+
+                    <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+
+
+                    @*<li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>*@
+
+
+                    <li><a asp-area="Admin" asp-controller="DashBoard" asp-action="Index">Index</a></li>
+
+                    <li><a asp-area="Financial" asp-controller="DashBoard" asp-action="Graph">Graph</a></li>
+                </ul>
+            </div>
+
+        }
+
+        else
+        {
+            <div class="navbar-collapse">
+
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Account" asp-action="SignUp">Sign UP</a></li>
+
+
+
+                    @*<li>Hello! @User.Identity.Name Already signed in</li>
+
+        <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>*@
+
+
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+
+                    <li><a asp-area="Admin" asp-controller="DashBoard" asp-action="Index">Index</a></li>
+
+                    <li><a asp-area="Financial" asp-controller="DashBoard" asp-action="Graph">Graph</a></li>
+
+
+
+                </ul>
+            </div>
+        }
+
+
+    </div>
+</nav>

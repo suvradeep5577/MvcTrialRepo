@@ -1,0 +1,14 @@
+﻿@model IEnumerable<BookModel>
+<h3> view component demo </h3>
+<div class="row">
+    
+    @foreach( var item in Model)
+    {
+
+        //Html.RenderPartial("_partialListOfBook", Model);
+
+
+
+                <partial name="_partialListOfBook" model="@item" />
+      }
+</div>

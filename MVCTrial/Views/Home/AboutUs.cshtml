@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_LayoutCstom";
+
+}
+<h2 class="tag">About US page</h2>
+
+@*@{
+    await Component.InvokeAsync("Book");
+}*@
+
+<vc:book count="2"></vc:book>
+
+
+<environment names="Development">
+    <h3>Development</h3>
+</environment>
+<environment names="Production, staging">
+    <h3>Production</h3>
+</environment>
+
+
+<environment include="Development">
+    <h3>Development</h3>
+</environment>
+<environment include="Production, staging">
+    <h3>Production</h3>
+</environment>
+
+@*<a href="/home/contactus"> GO to  Contact Us Page</a>*@
+<a asp-controller="home" asp-action="contactus"> GO to  Contact Us Page</a>

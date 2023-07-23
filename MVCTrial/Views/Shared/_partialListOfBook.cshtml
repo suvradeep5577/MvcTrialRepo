@@ -1,0 +1,17 @@
+﻿@model MVCTrial.Models.BookModel
+
+@if(Model!=null)
+            {
+
+                <div class="col">
+    <h2>
+        Title: @Model.title
+    </h2>
+    <h2> Author: @Model.author</h2>
+
+    @*<a href="/book/getbookdetail/@item.ID"> Go to Details</a>*@
+    <a asp-controller="book" asp-action="getbookdetail" asp-route-id="@Model.ID">Go to Details </a>
+    @*<a asp-route="bookroute" asp-route-id="@item.ID"> Go to Details</a>*@
+</div>
+
+            }

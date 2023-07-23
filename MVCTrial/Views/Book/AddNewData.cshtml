@@ -1,0 +1,119 @@
+﻿@model MVCTrial.Models.BookModel
+
+@{
+    Layout = "_LayoutCstom";
+
+}
+
+
+<div class="container">
+    <h5 class="display-2"> Add New Data</h5>
+    <form method="post" enctype="multipart/form-data"  
+          asp-action="AddNewData" asp-controller="Book">
+
+
+        @*<div asp-validation-summary="All" class="text-danger">
+
+        </div>*@
+
+
+        <div class="form-group">
+            <label asp-for="title">
+
+            </label>
+            <input asp-for="title" class="form-control" />
+            <span asp-validation-for="title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="author">
+
+            </label>
+            <input asp-for="author" class="form-control" />
+            <span asp-validation-for="author" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">
+
+            </label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+         
+        <div class="form-group">
+            <label asp-for="Language">
+
+            </label>
+            @*<select asp-for="Language" class="form-control">
+            <option value="" >Please Select a Language</option>
+            <option value="Bengali" >Bengali(My mother language)</option>
+            <option value="English" >English(Official Language)</option>
+            <option value="Hindi" >Hindi(National Language)</option>
+        </select>*@
+
+
+            @*<select asp-for="Language" class="form-control" asp-items="new SelectList(ViewBag.language)">
+            <option value="">Please Select a Language</option>
+        </select>*@
+
+            <select asp-for="Language" class="form-control" asp-items="ViewBag.language">
+                <option value="">Please Select a Language</option>
+            </select>
+
+
+            <span asp-validation-for="Language" class="text-danger"></span>
+
+
+            @*<label asp-for="MultiLanguage">
+
+        </label>
+        <select asp-for="MultiLanguage" class="form-control" asp-items="ViewBag.language" multiple>
+            <option value="">Please Select a Language</option>
+        </select>
+
+
+        <span asp-validation-for="MultiLanguage" class="text-danger"></span>*@
+
+        <div class="form-group">
+            <label asp-for="imge">
+
+            </label>
+            
+            <div class="mb-3">
+
+                <input asp-for="imge" class="form-control"  id="formFile">
+                <label for="formFile" class="form-label"> </label>
+
+            </div>
+           
+            <span asp-validation-for="imge" class="text-danger"></span>
+        </div>
+
+
+
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <input type="submit" value="Add new book" class="sbmt btn btn-primary" />
+        </div>
+    </form>
+</div>
+@section scripts 
+{
+    <script>
+
+        function myComplete(data) {
+            alert("Programme is complete");
+        }
+
+        function mySuccess(data) {
+            alert("Insert Successfull");
+        }
+
+        function myFailure(data) {
+            alert("Insert Failed");
+        }
+
+</script>
+
+}

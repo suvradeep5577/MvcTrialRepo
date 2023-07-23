@@ -1,0 +1,49 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration conob
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/Shared/_LayoutCstom.cshtml";
+}
+
+@{
+    var res = conob.GetValue<string>("BookName");
+    var demo = conob.GetValue<bool>("AppBoolValue");
+}
+
+@*@inject MVCTrial.BookRepositary.ILanRepositary lanob*@
+
+<h2 class="tag">ContactUs page</h2>
+@*<a href="/home/aboutus">GO to About US </a>*@
+
+@*@{
+        await Component.InvokeAsync("Book");
+    }
+    <vc:book></vc:book>*@
+
+<a asp-controller="home" asp-action="aboutus"> GO to About US</a>
+
+@*<div>
+        @lanob.getLanguage();
+    </div>*@
+
+<div class="alert alert-info" role="alert">
+    @{
+        @res   @demo
+    }
+</div>
+
+
+@section scripts{
+
+    <script>
+
+                //$(document).ready(function () {
+                //    alert("Demo");
+
+                //});
+    </script>
+
+}
+
+
+
